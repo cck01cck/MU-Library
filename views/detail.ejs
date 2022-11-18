@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <%- include('partials/sideBar.ejs'); %>
+    <div>
+        <% items.forEach((datas)=> { %>
+
+            <script>
+                function e() {
+                    location.href = '/edit?_id=<%=datas._id%>'
+                }
+                function d() {
+                    location.href = '/delete?_id=<%=datas._id%>'
+                }
+               
+                function back() {
+                    location.href = '/view'
+                }
+            </script>
+            
+            <div>
+                
+                <p>Book Name: <%=datas.title%>
+                </p>
+                <p>Type: <%=datas.type%>
+                </p>
+                <p>Quantity: <%=datas.quantity%>
+                </p>
+                <p>Language: <%=datas.language%>
+                </p>
+                <p>author: <%=datas.author%>
+                </p>
+                <P>Manager: <%=datas.manager%>
+                </P>
+            </div>
+
+            <div><span><button onclick="e()" class="btn btn-secondary">Edit</button> <button onclick="d()" class="btn btn-secondary">Delete</button>
+                    <button onclick="back()" class="btn btn-secondary">Back</button></span></div>
+            <% }) %>
+    </div>
+</div>
+</div>
+</body>
+
+</html>
